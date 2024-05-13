@@ -1,0 +1,30 @@
+age - Skewness: -0.1831893833977602, Kurtosis: -0.380681023318413
+sex - Skewness: -1.432892254245021, Kurtosis: 0.05329382022921525
+Consider log or square root transforming sex due to high skewness.
+painloc - Skewness: -3.931430335025165, Kurtosis: 13.486142139607876
+Consider log or square root transforming painloc due to high skewness.
+painexer - Skewness: -0.986033600152124, Kurtosis: -1.030034210872002
+cp - Skewness: -0.9002689061262156, Kurtosis: -0.40886037454337876
+trestbps - Skewness: 0.8095689290427, Kurtosis: 0.997481474636333
+smoke - Skewness: 2.0110727866898586, Kurtosis: 2.386001872671113
+Consider log or square root transforming smoke due to high skewness.
+fbs - Skewness: 1.9618357895968777, Kurtosis: 1.8529168940583403
+Consider log or square root transforming fbs due to high skewness.
+prop - Skewness: 1.2250424358406844, Kurtosis: -0.5003892008400479
+Consider log or square root transforming prop due to high skewness.
+nitr - Skewness: 1.1756177814655593, Kurtosis: -0.6193055555211173
+Consider log or square root transforming nitr due to high skewness.
+pro - Skewness: 1.8561456826434564, Kurtosis: 1.4484943051327934
+Consider log or square root transforming pro due to high skewness.
+diuretic - Skewness: 2.6284573347583784, Kurtosis: 4.919727922677982
+Consider log or square root transforming diuretic due to high skewness.
+thaldur - Skewness: 0.8574600690463593, Kurtosis: 1.1536648944523509
+thalach - Skewness: -0.22578873623213008, Kurtosis: -0.31830173508496884
+exang - Skewness: 0.5524721229657327, Kurtosis: -1.6985582901090657
+oldpeak - Skewness: 1.0635690538582243, Kurtosis: 0.3319106918146253
+Consider log or square root transforming oldpeak due to high skewness.
+slope - Skewness: -0.25040512524667524, Kurtosis: 0.45877941018121193
+target - Skewness: -0.20383261749293183, Kurtosis: -1.9628239124378266
+abs_smoke_rate - Skewness: -0.752242053907763, Kurtosis: -0.017334773469766418
+cdc_smoke_rate - Skewness: -1.0695737100236158, Kurtosis: 0.03773099056815621
+Consider log or square root transforming cdc_smoke_rate due to high skewness.

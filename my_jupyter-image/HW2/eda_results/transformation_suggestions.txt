@@ -1,0 +1,10 @@
+sex: Consider square root transformation
+painloc: Consider square root transformation
+smoke: Consider log transformation
+fbs: Consider log transformation
+prop: Consider log transformation
+nitr: Consider log transformation
+pro: Consider log transformation
+diuretic: Consider log transformation
+oldpeak: Consider log transformation
+cdc_smoke_rate: Consider square root transformation

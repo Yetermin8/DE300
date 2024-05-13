@@ -1,0 +1,39 @@
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 899 entries, 0 to 898
+Data columns (total 20 columns):
+ #   Column          Non-Null Count  Dtype  
+---  ------          --------------  -----  
+ 0   age             899 non-null    int64  
+ 1   sex             899 non-null    int64  
+ 2   painloc         899 non-null    float64
+ 3   painexer        899 non-null    float64
+ 4   cp              899 non-null    int64  
+ 5   trestbps        899 non-null    float64
+ 6   smoke           899 non-null    float64
+ 7   fbs             899 non-null    float64
+ 8   prop            899 non-null    float64
+ 9   nitr            899 non-null    float64
+ 10  pro             899 non-null    float64
+ 11  diuretic        899 non-null    float64
+ 12  thaldur         899 non-null    float64
+ 13  thalach         899 non-null    float64
+ 14  exang           899 non-null    float64
+ 15  oldpeak         899 non-null    float64
+ 16  slope           899 non-null    float64
+ 17  target          899 non-null    int64  
+ 18  abs_smoke_rate  899 non-null    float64
+ 19  cdc_smoke_rate  899 non-null    float64
+dtypes: float64(16), int64(4)
+memory usage: 140.6 KB
+
+              age         sex     painloc  ...      target  abs_smoke_rate  cdc_smoke_rate
+count  899.000000  899.000000  899.000000  ...  899.000000      899.000000      899.000000
+mean    53.480534    0.790879    0.945495  ...    0.550612        0.141723        0.169171
+std      9.435894    0.406908    0.227138  ...    0.497709        0.030217        0.031038
+min     28.000000    0.000000    0.000000  ...    0.000000        0.019000        0.083000
+25%     47.000000    1.000000    1.000000  ...    0.000000        0.120000        0.149000
+50%     54.000000    1.000000    1.000000  ...    1.000000        0.153000        0.193000
+75%     60.000000    1.000000    1.000000  ...    1.000000        0.174000        0.193000
+max     77.000000    1.000000    1.000000  ...    1.000000        0.174000        0.193000
+
+[8 rows x 20 columns]

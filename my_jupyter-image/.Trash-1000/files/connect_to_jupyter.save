@@ -1,0 +1,19 @@
+# Define your variables
+KEY_PATH="$HOME/Documents/data_eng_300_ssh/yetkey3.pem"  # Ensure the path is correctly formatted
+EC2_IP="ec2-18-225-156-172.us-east-2.compute.amazonaws.com"  # Use your actual EC2 Public IP
+LOCAL_PORT=8888
+REMOTE_PORT=32768
+
+# Check for port availability and kill any processes using the desired port
+PORT_USAGE=$(lsof -ti:$LOCAL_PORT)
+if [ ! -z "$PORT_USAGE" ]; then
+    echo "Port $LOCAL_PORT is busy. Trying to free it..."
+    kill -9 $PORT_USAGE
+fi
+
+# Start SSH with port forwarding
+echo "Connecting to EC2 instance..."
+ssh -i "$KEY_PATH" -L ${LOCAL_PORT}:localhost:${REMOTE_PORT} ubuntu@$EC2_IP << 'EOF'
+cd DE300/my_jupyter-image
+docker run -p $REMOTE_PORT:8888 -v $(pwd):/home/jovyan my_jupyter
+EOF
