@@ -1,2 +1,0 @@
-Potential interaction terms based on high correlations:
-abs_smoke_rate * cdc_smoke_rate (Correlation: 0.93)
