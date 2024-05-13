@@ -1,0 +1,20 @@
+Models Tested: Logistic Regression, Random Forest, Decision Tree
+
+Best Model: Logistic Regression
+Best Model Parameters: {'C': 0.01}
+Best Cross-Validation Score: 0.817
+Test Set Performance:
+Accuracy: 0.733
+Confusion Matrix:
+[[27 13]
+ [11 39]]
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.71      0.68      0.69        40
+           1       0.75      0.78      0.76        50
+
+    accuracy                           0.73        90
+   macro avg       0.73      0.73      0.73        90
+weighted avg       0.73      0.73      0.73        90
+

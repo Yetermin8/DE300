@@ -1,0 +1,18 @@
+Model: Logistic Regression
+Best parameters: {'C': 0.1, 'class_weight': None, 'solver': 'liblinear'}
+Best CV score: 0.818
+Test Set Performance:
+Accuracy: 0.744
+Confusion Matrix:
+[[28 12]
+ [11 39]]
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.72      0.70      0.71        40
+           1       0.76      0.78      0.77        50
+
+    accuracy                           0.74        90
+   macro avg       0.74      0.74      0.74        90
+weighted avg       0.74      0.74      0.74        90
+

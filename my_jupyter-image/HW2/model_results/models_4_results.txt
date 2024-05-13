@@ -1,4 +1,8 @@
-Accuracy: 0.7444444444444445
+Models Tested: Logistic Regression, Random Forest, Gradient Boosting
+Best Model: Gradient Boosting
+Best Model Parameters: {'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 100}
+Best Cross-Validation Score: 0.804
+Accuracy: 0.744
 Confusion Matrix:
 [[28 12]
  [11 39]]
@@ -11,4 +15,5 @@ Classification Report:
     accuracy                           0.74        90
    macro avg       0.74      0.74      0.74        90
 weighted avg       0.74      0.74      0.74        90
+
 
