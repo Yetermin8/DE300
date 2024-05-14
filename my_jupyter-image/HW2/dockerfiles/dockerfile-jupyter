@@ -1,0 +1,24 @@
+# Use the official Jupyter Data Science Notebook as a base image
+FROM jupyter/datascience-notebook:latest
+
+# Set the working directory in the container
+WORKDIR /home/jovyan/work
+
+# Install any additional dependencies
+USER root
+RUN conda install --quiet --yes \
+    'psycopg2' \
+    'pyarrow' && \
+    conda clean --all -f -y
+
+# Switch back to the jovyan user to avoid running as root
+USER jovyan
+
+# Copy your data and notebooks into the container, adjust the paath if needed
+COPY --chown=jovyan:users ./src /home/jovyan/work
+
+# Expose the port Jupyter will run on
+EXPOSE 8888
+
+# Start the Jupyter Notebook server
+CMD ["start-notebook.sh", "--NotebookApp.token=''", "--NotebookApp.password=''"]
