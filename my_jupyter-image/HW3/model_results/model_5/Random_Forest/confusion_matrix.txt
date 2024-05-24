@@ -1,0 +1,5 @@
+Confusion Matrix:
+Row(target=1, prediction=0.0, count=6)
+Row(target=0, prediction=0.0, count=25)
+Row(target=1, prediction=1.0, count=32)
+Row(target=0, prediction=1.0, count=9)
