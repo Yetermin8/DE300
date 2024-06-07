@@ -20,7 +20,7 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 # Load data
-data = spark.read.csv("/tmp/HW3/data/heart_disease_cleaned.csv/part-00000-c2664b64-2352-4cbc-8561-d30a4b7cbc8b-c000.csv", header=True, inferSchema=True)
+data = spark.read.csv("s3://de300spring2024/yetayal_tizale/HW3_Spark/data/heart_disease_cleaned.csv/part-00000-6b7d28dc-33d4-4e1a-9ea0-4561c767fc45-c000.csv", header=True, inferSchema=True)
 
 # Prepare the data
 feature_columns = [col for col in data.columns if col != 'target']
@@ -112,10 +112,13 @@ with open(os.path.join(result_folder, "best_params.txt"), "w") as f:
 
 print(f"Results saved to {result_folder}")
 
+# Upload results to S3
+os.system(f"aws s3 cp {result_folder} s3://de300spring2024/yetayal_tizale/HW3_Spark/model_results_emr/model_1 --recursive")
+
 spark.stop()
 
 
-# In[ ]:
+# In[2]:
 
 
 # Model 2
@@ -172,7 +175,7 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 # Load data
-data = spark.read.csv("/tmp/HW3/data/heart_disease_cleaned.csv/part-00000-c2664b64-2352-4cbc-8561-d30a4b7cbc8b-c000.csv", header=True, inferSchema=True)
+data = spark.read.csv("s3://de300spring2024/yetayal_tizale/HW3_Spark/data/heart_disease_cleaned.csv/part-00000-6b7d28dc-33d4-4e1a-9ea0-4561c767fc45-c000.csv", header=True, inferSchema=True)
 
 # Create interaction terms
 data = data.withColumn("age_trestbps", col("age") * col("trestbps"))
@@ -207,10 +210,13 @@ param_grid = ParamGridBuilder() \
 result_folder = "/tmp/HW3/model_results/model_2/Gradient_Boosting"
 train_and_evaluate_model('Gradient Boosting', gbt, param_grid, train_data, test_data, result_folder)
 
+# Upload results to S3
+os.system(f"aws s3 cp {result_folder} s3://de300spring2024/yetayal_tizale/HW3_Spark/model_results_emr/model_2 --recursive")
+
 spark.stop()
 
 
-# In[2]:
+# In[3]:
 
 
 # Model 3
@@ -265,7 +271,7 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 # Load data
-data = spark.read.csv("/tmp/HW3/data/heart_disease_cleaned.csv/part-00000-c2664b64-2352-4cbc-8561-d30a4b7cbc8b-c000.csv", header=True, inferSchema=True)
+data = spark.read.csv("s3://de300spring2024/yetayal_tizale/HW3_Spark/data/heart_disease_cleaned.csv/part-00000-6b7d28dc-33d4-4e1a-9ea0-4561c767fc45-c000.csv", header=True, inferSchema=True)
 
 # Apply transformations
 data = data.withColumn("sex", when(col("sex") == 0, 0).otherwise(1))
@@ -313,10 +319,13 @@ param_grid = ParamGridBuilder() \
 result_folder = "/tmp/HW3/model_results/model_3/Logistic_Regression"
 train_and_evaluate_model('Logistic Regression', lr, param_grid, train_data, test_data, result_folder)
 
+# Upload results to S3
+os.system(f"aws s3 cp {result_folder} s3://de300spring2024/yetayal_tizale/HW3_Spark/model_results_emr/model_3 --recursive")
+
 spark.stop()
 
 
-# In[ ]:
+# In[4]:
 
 
 # Model 4
@@ -371,7 +380,7 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 # Load data
-data = spark.read.csv("/tmp/HW3/data/heart_disease_cleaned.csv/part-00000-c2664b64-2352-4cbc-8561-d30a4b7cbc8b-c000.csv", header=True, inferSchema=True)
+data = spark.read.csv("s3://de300spring2024/yetayal_tizale/HW3_Spark/data/heart_disease_cleaned.csv/part-00000-6b7d28dc-33d4-4e1a-9ea0-4561c767fc45-c000.csv", header=True, inferSchema=True)
 
 # Prepare the data
 feature_columns = [col for col in data.columns if col != 'target']
@@ -412,10 +421,13 @@ for model_name, model in zip(['Logistic Regression', 'Random Forest'], [lr, rf])
     result_folder = f"/tmp/HW3/model_results/model_4/{model_name.replace(' ', '_')}"
     train_and_evaluate_model(model_name, model, param_grids[model_name], train_data, test_data, result_folder)
 
+# Upload results to S3
+os.system(f"aws s3 cp {result_folder} s3://de300spring2024/yetayal_tizale/HW3_Spark/model_results_emr/model_4 --recursive")
+
 spark.stop()
 
 
-# In[ ]:
+# In[5]:
 
 
 # Model 5
@@ -470,7 +482,7 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 # Load data
-data = spark.read.csv("/tmp/HW3/data/heart_disease_cleaned.csv/part-00000-c2664b64-2352-4cbc-8561-d30a4b7cbc8b-c000.csv", header=True, inferSchema=True)
+data = spark.read.csv("s3://de300spring2024/yetayal_tizale/HW3_Spark/data/heart_disease_cleaned.csv/part-00000-6b7d28dc-33d4-4e1a-9ea0-4561c767fc45-c000.csv", header=True, inferSchema=True)
 
 # Apply transformations to skewed variables
 data = data.withColumn('log_smoke', log1p(col('smoke')))
@@ -524,11 +536,11 @@ for model_name, model in zip(['Logistic Regression', 'Random Forest', 'Gradient 
     result_folder = f"/tmp/HW3/model_results/model_5/{model_name.replace(' ', '_')}"
     train_and_evaluate_model(model_name, model, param_grids[model_name], train_data, test_data, result_folder)
 
+# Upload results to S3
+os.system(f"aws s3 cp {result_folder} s3://de300spring2024/yetayal_tizale/HW3_Spark/model_results_emr/model_5 --recursive")
+
 spark.stop()
 
 
 # In[ ]:
-
-
-
 
